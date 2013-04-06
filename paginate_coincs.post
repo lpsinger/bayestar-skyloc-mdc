@@ -1,0 +1,4 @@
+#!/bin/bash
+if [[ $2 = 0 ]]; then \
+    rm -f paginate_coincs_$1.sql
+fi

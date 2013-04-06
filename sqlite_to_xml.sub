@@ -1,0 +1,6 @@
+universe = vanilla
+executable = /usr/bin/env
+arguments = "ligolw_sqlite --preserve-ids --extract $(xml) --database $(database) --tmp-space /tmp"
+getenv = true
+error = $(Cluster).$(Process).err
+queue 1

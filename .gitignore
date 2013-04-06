@@ -1,0 +1,7 @@
+*.dag
+*.dag.*
+*.err
+*.sqlite
+*.xml
+*.xml.gz
+._*

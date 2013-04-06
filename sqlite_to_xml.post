@@ -1,0 +1,4 @@
+#!/bin/bash
+if [[ $2 = 0 ]]; then \
+    rm -f $1
+fi
