@@ -15,4 +15,4 @@ count_coincs.txt: $(ALL_INJECTIONS)_min_far.sqlite count_coincs.sql
 	sqlite3 $< < count_coincs.sql > $@
 
 mdc.dag: count_coincs.txt make_dag.py
-	python make_dag.py $(shell cat count_coincs.txt) $(ALL_INJECTIONS)_min_far.sqlite > $@
+	./make_dag.py $(shell cat count_coincs.txt) $(ALL_INJECTIONS)_min_far.sqlite > $@
