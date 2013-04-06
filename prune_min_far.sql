@@ -1,4 +1,4 @@
-CREATE TEMPORARY TABLE min_far_coincs AS SELECT
+CREATE TEMPORARY TABLE to_keep_coincs AS SELECT
     MIN(ci.combined_far) AS min_combined_far,
     cem1.event_id AS simulation_id,
     cem2.event_id AS coinc_event_id
@@ -19,7 +19,7 @@ CREATE TEMPORARY TABLE min_far_coincs AS SELECT
 
 CREATE TEMPORARY TABLE to_delete_coincs AS SELECT
     coinc_event_id FROM coinc_event
-    WHERE coinc_event_id NOT IN (SELECT coinc_event_id FROM min_far_coincs)
+    WHERE coinc_event_id NOT IN (SELECT coinc_event_id FROM to_keep_coincs)
     AND coinc_def_id IN (SELECT coinc_def_id FROM coinc_definer
     WHERE description = 'sim_inspiral<-->coinc_event coincidences (exact)');
 
