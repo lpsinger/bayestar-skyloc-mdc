@@ -17,18 +17,18 @@ CREATE TEMPORARY TABLE min_far_coincs AS SELECT
     AND cem2.table_name='coinc_event'
     GROUP BY cem1.event_id;
 
-CREATE TEMPORARY TABLE not_min_far_coincs AS SELECT
+CREATE TEMPORARY TABLE to_delete_coincs AS SELECT
     coinc_event_id FROM coinc_event
     WHERE coinc_event_id NOT IN (SELECT coinc_event_id FROM min_far_coincs)
     AND coinc_def_id IN (SELECT coinc_def_id FROM coinc_definer
     WHERE description = 'sim_inspiral<-->coinc_event coincidences (exact)');
 
 DELETE FROM coinc_inspiral
-    WHERE coinc_inspiral.coinc_event_id IN (SELECT * FROM not_min_far_coincs);
+    WHERE coinc_inspiral.coinc_event_id IN (SELECT * FROM to_delete_coincs);
 
 DELETE FROM coinc_event
-    WHERE coinc_event.coinc_event_id IN (SELECT * FROM not_min_far_coincs);
+    WHERE coinc_event.coinc_event_id IN (SELECT * FROM to_delete_coincs);
 
 DELETE FROM coinc_event_map
-    WHERE coinc_event_map.coinc_event_id IN (SELECT * FROM not_min_far_coincs)
-    OR coinc_event_map.event_id IN (SELECT * FROM not_min_far_coincs);
+    WHERE coinc_event_map.coinc_event_id IN (SELECT * FROM to_delete_coincs)
+    OR coinc_event_map.event_id IN (SELECT * FROM to_delete_coincs);
