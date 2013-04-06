@@ -5,7 +5,9 @@ CREATE TEMPORARY TABLE to_keep_coincs AS SELECT
     ON (cd.coinc_def_id = ce.coinc_def_id)
     WHERE cd.description =
     'sngl_inspiral<-->sngl_inspiral coincidences'
-    ORDER BY ce.event_id;
+    ORDER BY ce.event_id
+    LIMIT %limit%
+    OFFSET %offset%;
 
 CREATE TEMPORARY TABLE to_delete_coincs AS SELECT
     coinc_event_id FROM coinc_event
