@@ -2,7 +2,7 @@ ALL_INJECTIONS = H1L1V1-ALL-966383960-971614865-LLOID-1_injections
 
 all: $(ALL_INJECTIONS)_min_far.sqlite count_coincs.txt mdc.dag
 
-.INTERMEDIATE: $(ALL_INJECTIONS)_min_far.sqlite.tmp count_coincs.txt
+.INTERMEDIATE: $(ALL_INJECTIONS)_min_far.sqlite.tmp
 
 $(ALL_INJECTIONS)_min_far.sqlite.tmp: $(ALL_INJECTIONS).sqlite
 	cp $< $@
