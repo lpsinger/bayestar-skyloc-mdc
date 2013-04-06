@@ -1,18 +1,20 @@
 CREATE TEMPORARY TABLE min_far_coincs AS SELECT
-    MIN(coinc_inspiral.combined_far) AS min_combined_far,
+    MIN(ci.combined_far) AS min_combined_far,
     cem1.event_id AS simulation_id,
     cem2.event_id AS coinc_event_id
-    FROM coinc_event AS ce INNER JOIN coinc_event_map AS cem1
-    ON (ce.coinc_event_id = cem1.coinc_event_id)
+    FROM coinc_definer AS cd
+    INNER JOIN coinc_event AS ce
+    ON (cd.coinc_def_id = ce.coinc_def_id)
+    INNER JOIN coinc_event_map AS cem1
+    ON (cem1.coinc_event_id = ce.coinc_event_id)
     INNER JOIN coinc_event_map AS cem2
-    ON (ce.coinc_event_id = cem2.coinc_event_id)
-    INNER JOIN coinc_definer
-    ON (coinc_definer.coinc_def_id = ce.coinc_event_id)
-    INNER JOIN coinc_inspiral
-    ON (coinc_inspiral.coinc_event_id = cem2.event_id) 
-    WHERE description = 'sim_inspiral<-->coinc_event coincidences (exact)'
+    ON (cem2.coinc_event_id = ce.coinc_event_id)
+    INNER JOIN coinc_inspiral AS ci
+    ON (ci.coinc_event_id = cem2.event_id)
+    WHERE cd.description =
+    'sim_inspiral<-->coinc_event coincidences (exact)'
     AND cem1.table_name = 'sim_inspiral'
-    AND cem2.table_name = 'coinc_event'
+    AND cem2.table_name='coinc_event'
     GROUP BY cem1.event_id;
 
 CREATE TEMPORARY TABLE not_min_far_coincs AS SELECT
