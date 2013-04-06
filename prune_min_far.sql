@@ -19,9 +19,7 @@ CREATE TEMPORARY TABLE to_keep_coincs AS SELECT
 
 CREATE TEMPORARY TABLE to_delete_coincs AS SELECT
     coinc_event_id FROM coinc_event
-    WHERE coinc_event_id NOT IN (SELECT coinc_event_id FROM to_keep_coincs)
-    AND coinc_def_id IN (SELECT coinc_def_id FROM coinc_definer
-    WHERE description = 'sim_inspiral<-->coinc_event coincidences (exact)');
+    WHERE coinc_event_id NOT IN (SELECT coinc_event_id FROM to_keep_coincs);
 
 DELETE FROM coinc_inspiral
     WHERE coinc_inspiral.coinc_event_id IN (SELECT * FROM to_delete_coincs);
