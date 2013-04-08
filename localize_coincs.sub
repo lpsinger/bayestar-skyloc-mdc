@@ -1,0 +1,7 @@
+universe = vanilla
+executable = /usr/bin/env
+arguments = "bayestar_localize_coincs --f-low 40 --waveform TaylorF2threePointFivePN --prior 'uniform in volume'"
+getenv = true
+input = $(xml)
+error = $(Cluster).$(Process).err
+queue 1

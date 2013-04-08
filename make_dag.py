@@ -20,4 +20,8 @@ JOB paginate_to_xml_{i} sqlite_to_xml.sub
 VARS paginate_to_xml_{i} database="{coincfilestem}_{i}.sqlite" xml="{coincfilestem}_{i}.xml.gz"
 SCRIPT POST paginate_to_xml_{i} sqlite_to_xml.post {coincfilestem}_{i}.sqlite $RETURN
 PARENT paginate_coincs_{i} CHILD paginate_to_xml_{i}
+
+JOB localize_coincs_{i} localize_coincs.sub
+VARS localize_coincs_{i} xml="{coincfilestem}_{i}.xml.gz"
+PARENT paginate_to_xml_{i} CHILD localize_coincs_{i}
 """.format(i=i, coincfilestem=coincfilestem)
