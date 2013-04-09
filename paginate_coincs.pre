@@ -1,3 +1,3 @@
 #!/bin/bash
 sed "s/%limit%/100/;s/%offset%/100\*$1/;" paginate_coincs.sql > paginate_coincs_$1.sql
-cp $2 $3
+cp -L $2 $3
