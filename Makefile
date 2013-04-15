@@ -6,6 +6,7 @@ all: $(ALL_INJECTIONS)_min_far.sqlite count_coincs.txt mdc.dag
 
 $(ALL_INJECTIONS)_min_far.sqlite.tmp: $(ALL_INJECTIONS).sqlite
 	cp $< $@
+	chmod u+w $@
 
 $(ALL_INJECTIONS)_min_far.sqlite: $(ALL_INJECTIONS)_min_far.sqlite.tmp prune_min_far.sql
 	lalapps_run_sqlite --tmp-space /tmp --verbose $< --sql-file prune_min_far.sql
