@@ -1,0 +1,5 @@
+backend: pdf
+text.usetex: true
+font.family: serif
+font.serif: Liberation Serif
+font.size: 10.0
