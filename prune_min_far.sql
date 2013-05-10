@@ -33,7 +33,7 @@ DELETE FROM coinc_event
 DELETE FROM coinc_event_map
     WHERE coinc_event_map.coinc_event_id IN (SELECT * FROM to_delete_coincs);
 
-    -- Delete orphaned coinc_event_map records.
+-- Delete orphaned coinc_event_map records.
 DELETE FROM coinc_event_map
     WHERE coinc_event_map.event_id IN (SELECT * FROM to_delete_coincs);
 
