@@ -14,7 +14,7 @@ CREATE TEMPORARY TABLE to_keep_coincs AS SELECT
     INNER JOIN coinc_inspiral AS ci
     ON (ci.coinc_event_id = cem2.event_id)
     WHERE cd.description =
-    'sim_inspiral<-->coinc_event coincidences (exact)'
+    'sim_inspiral<-->coinc_event coincidences (nearby)'
     AND cem1.table_name = 'sim_inspiral'
     AND cem2.table_name='coinc_event'
     GROUP BY cem1.event_id;
