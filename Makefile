@@ -1,4 +1,4 @@
-ALL_INJECTIONS = H1L1V1-ALL-966383960-971614865-LLOID-1_injections
+ALL_INJECTIONS = FILL_ME_IN
 
 all: tmp/$(ALL_INJECTIONS)_min_far.sqlite tmp/count_coincs.txt mdc.dag
 
