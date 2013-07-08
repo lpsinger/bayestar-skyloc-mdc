@@ -1,4 +1,6 @@
 #!/bin/bash
 if [[ $2 = 0 ]]; then \
-    rm -f $1
+    rm -f tmp/$1
+else
+    exit $2
 fi

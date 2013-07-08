@@ -1,4 +1,6 @@
 #!/bin/bash
 if [[ $2 = 0 ]]; then \
-    rm -f paginate_coincs_$1.sql
+    rm -f tmp/paginate_coincs_$1.sql
+else
+    exit $2
 fi
