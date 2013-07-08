@@ -69,6 +69,7 @@ Let's say that you have some output from GstLAL in the directory `~/gstlal_out`.
    Obtain the DAG source code by cloning it from GitHub, like this:
 
     $ git clone https://github.com/lpsinger/bayestar-skyloc-mdc.git ~/gstlal_bayestar_out
+
 2. Look inside the gstlal output for an SQLite database whose name looks
    like `H1L1V1-ALL_LLOID_1_injections-966383960-100000.sqlite`. The
    substring `H1L1V1` denotes which detectors were used in the search, and
