@@ -85,5 +85,29 @@ Let's say that you have some output from GstLAL in the directory `~/gstlal_out`.
    symlink this file into the directory that you just created,
    `~/gstlal_bayestar_out`.
 
+3. Enter the directory `~/gstlal_bayestar_out`. Edit the `Makefile`. In the first line, change the variable `ALL_INJECTIONS` to the name of the SQLite database, with the `.sqlite` extension removed. Save the Makefile.
+
+4. Run `make` to generate the DAG.
+
+5. Copy or symlink the GstLAL output's power specra directory, `~/gstlal_out/gstlal_reference_psd`, to the directory `~/gstlal_bayestar_out/fits/gstlal_reference_psd`.
+
+6. Submit the DAG with the following command:
+
+    $ condor_submit_dag mdc.dag
+
+7. Once the DAG completes, run the postprocessing with the following command:
+
+    $ bayestar_aggregate_found_injections database.sqlite 'fits/*.toa_snr.fits.gz' -o toa_snr.out -j64
+
+   Replace `database.sqlite` with the path of the GstLAL databse from step 2.
+
+   It is important that the glob `'fits/*.toa_snr.fits.gz'` be in single quotes to prevent the shell from expanding it. If you leave off the quotes, it will work unless it runs up against the shell's maximum number of command line arguments.
+
+   Finally, you can control the number of threads that are used with the `-j` option.
+
+8. Plot the results with the command:
+
+    $ bayestar_plot_found_injections toa_snr.out
+
 [1]: https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html
 [2]: https://www.lsc-group.phys.uwm.edu/daswg/projects/gstlal.html
