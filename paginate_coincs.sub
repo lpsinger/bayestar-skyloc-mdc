@@ -2,5 +2,5 @@ universe = vanilla
 executable = /usr/bin/env
 arguments = "lalapps_run_sqlite --sql-file $(sql_file) $(database) --tmp-space /tmp"
 getenv = true
-error = $(Cluster).$(Process).err
+error = log/$(Cluster).$(Process).err
 queue 1
