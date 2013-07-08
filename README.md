@@ -59,5 +59,24 @@ The BAYESTAR DAG does the following tasks:
    different computers.
 3. Generate sky maps for all events.
 
+Setup
+-----
+
+Let's say that you have some output from GstLAL in the directory `~/gstlal_out`. Follow these steps:
+
+1. Pick a new directory for the BAYESTAR output. It doesn't matter where,
+   but let's say for example that you put it in `~/gstlal_bayestar_out`.
+   Obtain the DAG source code by cloning it from GitHub, like this:
+
+    $ git clone https://github.com/lpsinger/bayestar-skyloc-mdc.git ~/gstlal_bayestar_out
+2. Look inside the gstlal output for an SQLite database whose name looks
+   like `H1L1V1-ALL_LLOID_1_injections-966383960-100000.sqlite`. The
+   substring `H1L1V1` denotes which detectors were used in the search, and
+   the string `1_injections` denotes that this data file comprises
+   triggers resulting from simulating signals from the first injection
+   set. (We'll assume that there is only one injection set.) Copy or
+   symlink this file into the directory that you just created,
+   `~/gstlal_bayestar_out`.
+
 [1]: https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html
 [2]: https://www.lsc-group.phys.uwm.edu/daswg/projects/gstlal.html
