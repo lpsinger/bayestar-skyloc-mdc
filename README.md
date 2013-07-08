@@ -27,14 +27,18 @@ Once you have installed LALSuite, you will be able to run the following Python s
 
 1. `bayestar_localize_lvalert`:
    Listen for new events from lvalert and perform sky localization.
+
 2. `bayestar_localize_coincs`:
    Produce GW sky maps for all coincidences in a LIGO-LW XML file.
+
 3. `bayestar_aggregate_found_injections`:
    Tabulate results of localizing triggers that are coincident with
    simulated signals (injections).
+
 4. `bayestar_plot_found_injections`:
    Plot injection-finding results from
    `bayestar_aggregate_found_injections`.
+
 5. `bayestar_plot_allsky`:
    Plot a probability sky map on all-sky Mollweiede axes.
 
@@ -54,9 +58,11 @@ The BAYESTAR DAG does the following tasks:
    the lowest combined false alarm rate (and delete all other candidates).
    This models the concept that in a real search, all events above a given
    false alarm rate within an advancing time window would be followed up.
+
 2. Split all of the detection candidates into smaller batches (of 100
    events each) so that multiple event can be handled in parallel on
    different computers.
+
 3. Generate sky maps for all events.
 
 Setup
