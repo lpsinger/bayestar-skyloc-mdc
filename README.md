@@ -48,5 +48,16 @@ against the [GstLAL] [2] search pipeline. As a consequence, these
 instructions will focus on processing GstLAL's output, although the
 procedure could be easily adapted to other search pipelines (e.g. `ihope`).
 
+The BAYESTAR DAG does the following tasks:
+
+1. For each injection, select the matching detection candidate that has
+   the lowest combined false alarm rate (and delete all other candidates).
+   This models the concept that in a real search, all events above a given
+   false alarm rate within an advancing time window would be followed up.
+2. Split all of the detection candidates into smaller batches (of 100
+   events each) so that multiple event can be handled in parallel on
+   different computers.
+3. Generate sky maps for all events.
+
 [1]: https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html
 [2]: https://www.lsc-group.phys.uwm.edu/daswg/projects/gstlal.html
