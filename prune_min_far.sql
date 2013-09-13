@@ -13,7 +13,7 @@ CREATE TEMPORARY TABLE to_keep_coincs AS SELECT DISTINCT
     AND cem2.table_name = 'coinc_event'
     AND cem1.event_id = simulation_id
     AND cd.description = 'sim_inspiral<-->coinc_event coincidences (nearby)'
-    ORDER BY ci.combined_far LIMIT 1)
+    ORDER BY ci.combined_far, ci.snr LIMIT 1)
     AS coinc_event_id FROM sim_inspiral WHERE coinc_event_id IS NOT NULL;
 
 -- Make a list of all 'sim_inspiral<-->coinc_event' associations but those.
