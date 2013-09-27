@@ -51,9 +51,7 @@ DROP TABLE filter;
 DROP TABLE coinc_inspiral;
 DROP TABLE sim_inspiral;
 DROP TABLE search_summary;
-DROP TABLE segment;
 DROP TABLE search_summvars;
-DROP TABLE segment_definer;
 DROP TABLE summ_value;
 DROP TABLE time_slide;
 
