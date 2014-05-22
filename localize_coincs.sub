@@ -2,7 +2,7 @@ universe = vanilla
 executable = /usr/bin/env
 environment = OMP_NUM_THREADS=1
 request_memory = 1400 MB
-arguments = "bayestar_localize_coincs --keep-going --f-low 40 --waveform TaylorF2threePointFivePN"
+arguments = "bayestar_localize_coincs --keep-going --f-low 40 --waveform TaylorF2threePointFivePN --method=$(method)"
 getenv = true
 initialdir = fits
 input = ../$(xml)
