@@ -47,13 +47,13 @@ DELETE FROM process_params WHERE process_id NOT IN
     (SELECT process_id FROM process);
 
 -- Delete tables that we won't need.
-DROP TABLE filter;
-DROP TABLE coinc_inspiral;
-DROP TABLE sim_inspiral;
-DROP TABLE search_summary;
-DROP TABLE search_summvars;
-DROP TABLE summ_value;
-DROP TABLE time_slide;
+DROP TABLE IF EXISTS filter;
+DROP TABLE IF EXISTS coinc_inspiral;
+DROP TABLE IF EXISTS sim_inspiral;
+DROP TABLE IF EXISTS search_summary;
+DROP TABLE IF EXISTS search_summvars;
+DROP TABLE IF EXISTS summ_value;
+DROP TABLE IF EXISTS time_slide;
 
 -- Clean up unused space.
 VACUUM;
