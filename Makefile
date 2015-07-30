@@ -1,6 +1,6 @@
 ALL_INJECTIONS = FILL_ME_IN
 EVENTS_PER_JOB = 100
-METHODS = toa toa_snr toa_phoa_snr
+METHODS = toa_phoa_snr
 
 all: tmp/$(ALL_INJECTIONS)_min_far.sqlite tmp/count_coincs.txt mdc.dag
 
