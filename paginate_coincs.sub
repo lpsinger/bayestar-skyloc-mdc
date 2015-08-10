@@ -9,4 +9,5 @@ executable = /usr/bin/env
 arguments = "lalapps_run_sqlite --sql-file tmp/$(sql_file) $(database) --tmp-space /tmp"
 getenv = true
 error = log/$(Cluster).$(Process).err
+accounting_group = ligo.dev.o1.cbc.pe.bayestar
 queue 1

@@ -7,4 +7,5 @@ getenv = true
 initialdir = fits
 input = ../$(xml)
 error = ../log/$(Cluster).$(Process).err
+accounting_group = ligo.dev.o1.cbc.pe.bayestar
 queue 1
