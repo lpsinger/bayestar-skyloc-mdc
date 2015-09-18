@@ -97,17 +97,17 @@ Let's say that you have some output from GstLAL in the directory `~/gstlal_out`.
 
 7. Once the DAG completes, run the postprocessing with the following command:
 
-    $ bayestar_aggregate_found_injections database.sqlite 'fits/*.toa_snr.fits.gz' -o toa_snr.out -j64
+    $ bayestar_aggregate_found_injections database.sqlite 'fits/*.toa_phoa_snr.fits.gz' -o toa_phoa_snr.out -j64
 
    Replace `database.sqlite` with the path of the GstLAL databse from step 2.
 
-   It is important that the glob `'fits/*.toa_snr.fits.gz'` be in single quotes to prevent the shell from expanding it. If you leave off the quotes, it will work unless it runs up against the shell's maximum number of command line arguments.
+   It is important that the glob `'fits/*.toa_phoa_snr.fits.gz'` be in single quotes to prevent the shell from expanding it. If you leave off the quotes, it will work unless it runs up against the shell's maximum number of command line arguments.
 
    Finally, you can control the number of threads that are used with the `-j` option.
 
 8. Plot the results with the command:
 
-    $ bayestar_plot_found_injections toa_snr.out
+    $ bayestar_plot_found_injections toa_phoa_snr.out
 
 [1]: https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html
 [2]: https://www.lsc-group.phys.uwm.edu/daswg/projects/gstlal.html
