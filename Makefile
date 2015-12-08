@@ -11,8 +11,8 @@ tmp/$(ALL_INJECTIONS)_min_far.sqlite.tmp: $(ALL_INJECTIONS).sqlite
 	cp $< $@
 	chmod u+w $@
 
-tmp/$(ALL_INJECTIONS)_min_far.sqlite: tmp/$(ALL_INJECTIONS)_min_far.sqlite.tmp prune_min_far.sql
-	lalapps_run_sqlite --tmp-space /tmp --verbose $< --sql-file prune_min_far.sql
+tmp/$(ALL_INJECTIONS)_min_far.sqlite: tmp/$(ALL_INJECTIONS)_min_far.sqlite.tmp prune.sql
+	lalapps_run_sqlite --tmp-space /tmp --verbose $< --sql-file prune.sql
 	mv $< $@
 
 tmp/count_coincs.txt: tmp/$(ALL_INJECTIONS)_min_far.sqlite count_coincs.sql
