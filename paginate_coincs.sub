@@ -1,9 +1,3 @@
-# FIXME: For some as-yet unknown reason, if one of these jobs
-# is evicted the coinc_event table contains zero entries.
-#
-# To be safe, let's submit these to the local universe to avoid
-# evictions until we understand what is going on.
-# universe = vanilla
 universe = local
 executable = /usr/bin/env
 arguments = "lalapps_run_sqlite --sql-file tmp/$(sql_file) $(database) --tmp-space /tmp"
